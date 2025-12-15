@@ -191,8 +191,8 @@ export default function Home() {
             <Table className="border rounded-lg overflow-hidden">
               <TableHeader>
                 <TableRow className="bg-primary hover:bg-primary">
-                  <TableHead className="text-white font-bold">Parameter</TableHead>
-                  <TableHead className="text-white font-bold">Details</TableHead>
+                  <TableHead className="text-primary-foreground font-bold">Parameter</TableHead>
+                  <TableHead className="text-primary-foreground font-bold">Details</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
