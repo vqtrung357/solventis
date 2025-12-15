@@ -16,18 +16,16 @@ export function TestimonialCard({ quote, author, title, company, className }: Te
       "p-6 border rounded-lg bg-card shadow-sm hover:shadow-md transition-shadow h-full flex flex-col",
       className
     )}>
-      <div className="flex mb-4">
+      <div className="flex justify-center mb-4">
         {[...Array(5)].map((_, i) => (
           <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
         ))}
       </div>
       <p className="text-lg italic text-foreground mb-6 flex-grow">"{quote}"</p>
-      <div className="flex items-center mt-auto">
-        <div>
-          <p className="font-semibold text-primary">{author}</p>
-          <p className="text-sm text-muted-foreground">{title}</p>
-          <p className="text-sm text-muted-foreground">{company}</p>
-        </div>
+      <div className="text-center mt-auto">
+        <p className="font-semibold text-primary">{author}</p>
+        <p className="text-sm text-muted-foreground">{title}</p>
+        <p className="text-sm text-muted-foreground">{company}</p>
       </div>
     </div>
   );
