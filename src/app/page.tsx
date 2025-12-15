@@ -50,14 +50,14 @@ export default function Home() {
       <main className="container mx-auto px-4 md:px-8 py-16 space-y-24 md:space-y-32">
         
         {/* 1. Hero Section */}
-        <section className="text-center pt-10 pb-16">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter max-w-5xl mx-auto leading-tight text-primary">
+        <section className="pt-10 pb-16">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter max-w-5xl leading-tight text-primary">
             Institutional Yield, Backed by Real Trade
           </h1>
-          <p className="mt-6 text-2xl text-muted-foreground max-w-4xl mx-auto">
+          <p className="mt-6 text-2xl text-muted-foreground max-w-4xl">
             Access short-duration, asset-backed yield derived from tokenized global trade receivables.
           </p>
-          <div className="mt-10 flex justify-center space-x-4">
+          <div className="mt-10 flex space-x-4">
             <Button size="lg" className="h-12 px-8 text-lg bg-accent hover:bg-accent/90 text-white">
               Request Institutional Access <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -67,7 +67,7 @@ export default function Home() {
           </div>
           
           {/* Trust Indicators */}
-          <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-muted-foreground font-medium">
+          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground font-medium">
             <span className="flex items-center">
               <Check className="w-4 h-4 mr-1 text-green-600" /> Singapore-based
             </span>
@@ -328,6 +328,7 @@ export default function Home() {
             <div className="p-6 border rounded-lg bg-card shadow-sm">
               <h4 className="text-xl font-semibold mb-2 text-primary">Reduced FX Friction</h4>
               <p className="text-muted-foreground">Settlement in major stablecoin denominations (e.g., USDC, potentially regulated SGD stablecoins) minimizes cross-border currency conversion costs.</p>
+            </p>
             </div>
           </div>
           <p className="mt-8 text-sm text-gray-500 italic">
