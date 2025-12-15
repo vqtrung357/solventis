@@ -67,20 +67,14 @@ export function Navigation() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-8">
+      <div className="container flex h-20 items-center justify-between px-4 md:px-8">
         <Link href="/" className="flex items-center">
-          <div className="w-32 h-10 text-primary">
-            <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-              <path d="M10 30H30" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-              <path d="M30 30L35 25" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-              <path d="M35 25L40 30" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-              <path d="M40 30H60" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-              <circle cx="15" cy="30" r="1" fill="currentColor"/>
-              <circle cx="45" cy="30" r="1" fill="currentColor"/>
-              <path d="M65 40L75 35" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-              <text x="70" y="35" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="currentColor">
-                Solventis
+          <div className="w-40 h-16 text-primary">
+            <svg viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+              <text x="10" y="55" fontFamily="Arial, sans-serif" fontSize="32" fontWeight="bold" fill="currentColor">
+                SOLVENTIS
               </text>
+              <path d="M5 65H195" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             </svg>
           </div>
         </Link>
