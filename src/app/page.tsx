@@ -15,6 +15,7 @@ import {
 import { Navigation } from "@/components/Navigation";
 import { BulletPointCard } from "@/components/BulletPointCard";
 import { DataCharts } from "@/components/DataCharts";
+import { TestimonialCard } from "@/components/TestimonialCard";
 
 // --- Helper Components for Structure ---
 
@@ -29,7 +30,6 @@ const SectionSubtitle = ({ children }: { children: React.ReactNode }) => (
     {children}
   </p>
 );
-
 
 export default function Home() {
   return (
@@ -361,7 +361,36 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 12. Call to Action (Final) (Previously 11) */}
+        {/* 12. Customer Testimonials (NEW) */}
+        <section id="testimonials" className="text-center">
+          <SectionTitle>What Our Clients Say</SectionTitle>
+          <SectionSubtitle>
+            Hear from institutional investors who have experienced the Solventis advantage firsthand.
+          </SectionSubtitle>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <TestimonialCard
+              quote="Solventis has transformed our treasury strategy. The combination of short-duration, high-quality yield, and seamless stablecoin settlement is unmatched in the market."
+              author="Sarah Chen"
+              title="CFO"
+              company="Global Family Office"
+            />
+            <TestimonialCard
+              quote="As a regulated asset manager, compliance is paramount. Solventis' MAS-compliant structure and rigorous due diligence process gave us the confidence to allocate capital to their tokenized trade finance notes."
+              author="Michael Tan"
+              title="Portfolio Manager"
+              company="Institutional Asset Management"
+            />
+            <TestimonialCard
+              quote="The Solana integration is a game-changer. We've seen settlement times reduced from days to minutes, with complete transparency throughout the process. This is the future of institutional finance."
+              author="David Wong"
+              title="Head of Digital Assets"
+              company="Private Bank"
+            />
+          </div>
+        </section>
+
+        {/* 13. Call to Action (Final) (Previously 11) */}
         <section className="text-center py-10">
           <h2 className="text-4xl font-bold text-primary mb-6">
             Secure Your Access to Tokenized Trade Finance
