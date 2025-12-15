@@ -1,6 +1,5 @@
 "use client";
 
-import { MadeWithDyad } from "@/components/made-with-dyad";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Check, ArrowRight, BarChart3, Clock, Shield } from "lucide-react";
@@ -40,10 +39,8 @@ export default function Home() {
         
         {/* 1. Hero Section with Prominent Orange and Blue Background */}
         <section className="pt-10 pb-16 relative overflow-hidden">
-          {/* Stronger Orange and Blue gradient background */}
           <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-200/30 via-blue-200/20 to-primary/20 rounded-3xl"></div>
 
-          {/* More prominent texture pattern with stronger orange and blue accents */}
           <div className="absolute inset-0 -z-20 opacity-60">
             <div className="absolute top-10 left-10 w-40 h-40 bg-orange-300/30 rounded-full blur-2xl"></div>
             <div className="absolute top-20 right-20 w-32 h-32 bg-blue-300/30 rounded-full blur-2xl"></div>
@@ -57,7 +54,9 @@ export default function Home() {
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter max-w-5xl mx-auto leading-tight text-primary">
               Institutional Yield
               <br />
-              Backed by Real Trade
+              <span className="block text-3xl md:text-4xl font-semibold text-primary-foreground tracking-tight">
+                Backed by Real Trade
+              </span>
             </h1>
             <p className="mt-6 text-2xl text-muted-foreground max-w-4xl mx-auto">
               Access short-duration, asset-backed yield derived from tokenized global trade receivables.
@@ -71,7 +70,6 @@ export default function Home() {
               </Button>
             </div>
 
-            {/* Trust Indicators */}
             <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-muted-foreground font-medium">
               <span className="flex items-center">
                 <Check className="w-4 h-4 mr-1 text-green-600" /> Singapore-based
@@ -148,7 +146,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-3 text-primary text-center">The Solventis Flow</h3>
               <div className="p-6 border rounded-lg bg-secondary/30 text-center font-mono text-sm md:text-base overflow-x-auto">
                 <span className="whitespace-nowrap">
-                  Institutions &rarr; Solventis Platform &rarr; Trade Receivables (SPV) &rarr; Yield Generation &rarr; Stablecoin Settlement
+                  Institutions → Solventis Platform → Trade Receivables (SPV) → Yield Generation → Stablecoin Settlement
                 </span>
               </div>
             </div>
@@ -168,7 +166,7 @@ export default function Home() {
               { title: "2. Due Diligence & SPV Structuring", description: "Each asset undergoes comprehensive legal and financial review. Assets are segregated into bankruptcy-remote Special Purpose Vehicles (SPVs) in Singapore." },
               { title: "3. Tokenized Yield Note Issuance", description: "A digital security (Yield Note) representing the claim on the SPV assets is issued on a permissioned blockchain ledger." },
               { title: "4. Institutional Subscription", description: "Whitelisted institutions subscribe to the Yield Notes using stablecoins, providing immediate funding to the SPV." },
-              { title: "5. Cash Flow & Settlement", description: "Upon invoice maturity (30–90 days), the principal and yield are automatically distributed back to the investor via stablecoin settlement." },
+              { title: "5. Cash Flow & Settlement", description: "Upon invoice maturation (30–90 days), the principal and yield are automatically distributed back to the investor via stablecoin settlement." },
             ].map((step, index) => (
               <div key={index} className="relative p-4 border rounded-lg bg-card shadow-md hover:shadow-lg transition-shadow">
                 <div className="text-3xl font-extrabold text-accent mb-2">{index + 1}</div>
@@ -424,7 +422,6 @@ export default function Home() {
         </section>
       </main>
       
-      <MadeWithDyad />
     </div>
   );
 }
