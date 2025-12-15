@@ -54,7 +54,9 @@ export default function Home() {
         {/* 1. Hero Section */}
         <section className="pt-10 pb-16">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter max-w-5xl leading-tight text-primary">
-            Institutional Yield, Backed by Real Trade
+            Institutional Yield
+            <br />
+            Backed by Real Trade
           </h1>
           <p className="mt-6 text-2xl text-muted-foreground max-w-4xl">
             Access short-duration, asset-backed yield derived from tokenized global trade receivables.
