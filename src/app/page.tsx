@@ -38,19 +38,19 @@ export default function Home() {
 
       <main className="container mx-auto px-4 md:px-8 py-16 space-y-24 md:space-y-32">
         
-        {/* 1. Hero Section with Orange and Blue Background */}
+        {/* 1. Hero Section with Prominent Orange and Blue Background */}
         <section className="pt-10 pb-16 relative overflow-hidden">
-          {/* Orange and Blue gradient background */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-100/50 via-blue-100/30 to-primary/10 rounded-3xl"></div>
+          {/* Stronger Orange and Blue gradient background */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-200/30 via-blue-200/20 to-primary/20 rounded-3xl"></div>
 
-          {/* Subtle texture pattern with orange and blue accents */}
-          <div className="absolute inset-0 -z-20 opacity-40">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-orange-200/20 rounded-full blur-xl"></div>
-            <div className="absolute top-20 right-20 w-24 h-24 bg-blue-200/20 rounded-full blur-xl"></div>
-            <div className="absolute bottom-10 left-20 w-20 h-20 bg-orange-200/20 rounded-full blur-xl"></div>
-            <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-200/20 rounded-full blur-xl"></div>
-            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-orange-300/15 rounded-full blur-md"></div>
-            <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-blue-300/15 rounded-full blur-md"></div>
+          {/* More prominent texture pattern with stronger orange and blue accents */}
+          <div className="absolute inset-0 -z-20 opacity-60">
+            <div className="absolute top-10 left-10 w-40 h-40 bg-orange-300/30 rounded-full blur-2xl"></div>
+            <div className="absolute top-20 right-20 w-32 h-32 bg-blue-300/30 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-10 left-20 w-28 h-28 bg-orange-300/30 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-20 right-10 w-36 h-36 bg-blue-300/30 rounded-full blur-2xl"></div>
+            <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-orange-400/20 rounded-full blur-xl"></div>
+            <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-blue-400/20 rounded-full blur-xl"></div>
           </div>
 
           <div className="relative z-10 text-center">
