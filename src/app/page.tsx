@@ -1,3 +1,5 @@
+"use client";
+
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -328,7 +330,6 @@ export default function Home() {
             <div className="p-6 border rounded-lg bg-card shadow-sm">
               <h4 className="text-xl font-semibold mb-2 text-primary">Reduced FX Friction</h4>
               <p className="text-muted-foreground">Settlement in major stablecoin denominations (e.g., USDC, potentially regulated SGD stablecoins) minimizes cross-border currency conversion costs.</p>
-            </p>
             </div>
           </div>
           <p className="mt-8 text-sm text-gray-500 italic">
