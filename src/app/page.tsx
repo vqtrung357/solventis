@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Navigation } from "@/components/Navigation";
 
 // --- Helper Components for Structure ---
 
@@ -44,16 +45,7 @@ const ChartPlaceholder = ({ title, description, icon: Icon }: { title: string, d
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-8">
-          <div className="text-2xl font-bold text-primary tracking-tight">
-            Solventis
-          </div>
-          <Button variant="default" className="bg-primary hover:bg-primary/90">
-            Request Institutional Access
-          </Button>
-        </div>
-      </header>
+      <Navigation />
 
       <main className="container mx-auto px-4 md:px-8 py-16 space-y-24 md:space-y-32">
         
@@ -91,7 +83,7 @@ export default function Home() {
         <Separator />
 
         {/* 2. Problem Statement (Institutional Context) */}
-        <section className="text-center">
+        <section id="problem" className="text-center">
           <SectionTitle>The Challenge of Institutional Fixed Income</SectionTitle>
           <SectionSubtitle>
             Traditional fixed income markets offer limited opportunities for short-duration, high-quality yield without taking on excessive duration or liquidity risk.
@@ -123,7 +115,7 @@ export default function Home() {
         </section>
 
         {/* 3. Solventis Solution Overview */}
-        <section className="text-center">
+        <section id="solution" className="text-center">
           <SectionTitle>Solventis: Tokenizing Institutional Trade Finance</SectionTitle>
           <SectionSubtitle>
             Solventis bridges institutional capital with high-quality, short-duration trade receivables using a compliant, permissioned tokenization framework.
@@ -158,7 +150,7 @@ export default function Home() {
         </section>
 
         {/* 4. How It Works (Mechanism – Step by Step) */}
-        <section>
+        <section id="mechanism">
           <SectionTitle>Mechanism: A Structured Approach to RWA</SectionTitle>
           <SectionSubtitle>
             Our process ensures rigorous due diligence, legal clarity, and efficient settlement for every tokenized yield note.
@@ -185,7 +177,7 @@ export default function Home() {
         </section>
 
         {/* 5. Product: Solventis Yield Notes */}
-        <section className="text-center">
+        <section id="product" className="text-center">
           <SectionTitle>Product Focus: Solventis Yield Notes</SectionTitle>
           <SectionSubtitle>
             A highly structured, short-duration product designed for treasury management and conservative capital deployment.
@@ -234,7 +226,7 @@ export default function Home() {
         </section>
 
         {/* 6. Chart Section */}
-        <section className="text-center">
+        <section id="data" className="text-center">
           <SectionTitle>Data-Driven Allocation</SectionTitle>
           <SectionSubtitle>
             Visualizing the risk, duration, and yield profile of Solventis Yield Notes compared to traditional fixed income instruments.
@@ -260,7 +252,7 @@ export default function Home() {
         </section>
 
         {/* 7. Compliance & Risk Management */}
-        <section className="text-center">
+        <section id="compliance" className="text-center">
           <SectionTitle>Compliance and Institutional Safeguards</SectionTitle>
           <SectionSubtitle>
             Our framework is built on regulatory adherence and robust risk mitigation, ensuring capital protection and legal enforceability.
@@ -295,7 +287,7 @@ export default function Home() {
         </section>
 
         {/* 8. Why Singapore */}
-        <section className="text-center">
+        <section id="singapore" className="text-center">
           <SectionTitle>Strategic Location: Singapore</SectionTitle>
           <SectionSubtitle>
             Operating from Singapore provides a foundation of regulatory clarity, financial stability, and unparalleled access to global trade flows.
@@ -318,7 +310,7 @@ export default function Home() {
         </section>
 
         {/* 9. Solventis Stablecoin Layer */}
-        <section className="text-center">
+        <section id="stablecoin" className="text-center">
           <SectionTitle>Efficient Settlement via Stablecoins</SectionTitle>
           <SectionSubtitle>
             We utilize stablecoins exclusively for settlement, enhancing treasury efficiency and reducing counterparty risk compared to traditional banking rails.
@@ -344,7 +336,7 @@ export default function Home() {
         </section>
 
         {/* 10. Target Clients (Institutional Only) */}
-        <section className="text-center">
+        <section id="clients" className="text-center">
           <SectionTitle>Target Clientele: Institutional Only</SectionTitle>
           <SectionSubtitle>
             Solventis is designed exclusively for sophisticated investors requiring compliant, high-quality RWA exposure.
