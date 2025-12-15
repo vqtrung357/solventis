@@ -15,6 +15,9 @@ const navItems = [
   { title: "Data", href: "#data" },
   { title: "Compliance", href: "#compliance" },
   { title: "Singapore", href: "#singapore" },
+  { title: "Technology", href: "#technology" },
+  { title: "Stablecoin", href: "#stablecoin" },
+  { title: "Clients", href: "#clients" },
 ];
 
 export function Navigation() {

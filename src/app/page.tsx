@@ -312,8 +312,31 @@ export default function Home() {
             </div>
           </div>
         </section>
+        
+        {/* 9. Technology: Solana Integration (NEW) */}
+        <section id="technology" className="text-center">
+          <SectionTitle>Technology: Solana Integration</SectionTitle>
+          <SectionSubtitle>
+            We partner with the Solana Blockchain team to leverage its high throughput and low latency for institutional-grade tokenization and settlement.
+          </SectionSubtitle>
 
-        {/* 9. Solventis Stablecoin Layer */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
+            <div className="p-6 border rounded-lg bg-card shadow-sm">
+              <h4 className="text-xl font-semibold mb-2 text-primary">Institutional Speed</h4>
+              <p className="text-muted-foreground">Solana's architecture ensures rapid transaction finality, crucial for high-frequency institutional trade finance operations.</p>
+            </div>
+            <div className="p-6 border rounded-lg bg-card shadow-sm">
+              <h4 className="text-xl font-semibold mb-2 text-primary">Low Cost Settlement</h4>
+              <p className="text-muted-foreground">The network's minimal transaction fees make micro-settlements economically viable for large volumes of trade receivables.</p>
+            </div>
+            <div className="p-6 border rounded-lg bg-card shadow-sm">
+              <h4 className="text-xl font-semibold mb-2 text-primary">Permissioned Ledger</h4>
+              <p className="text-muted-foreground">We utilize a permissioned layer on Solana, ensuring strict adherence to KYC/KYB requirements and regulatory compliance for digital securities.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* 10. Solventis Stablecoin Layer (Previously 9) */}
         <section id="stablecoin" className="text-center">
           <SectionTitle>Efficient Settlement via Stablecoins</SectionTitle>
           <SectionSubtitle>
@@ -339,7 +362,7 @@ export default function Home() {
           </p>
         </section>
 
-        {/* 10. Target Clients (Institutional Only) */}
+        {/* 11. Target Clients (Institutional Only) (Previously 10) */}
         <section id="clients" className="text-center">
           <SectionTitle>Target Clientele: Institutional Only</SectionTitle>
           <SectionSubtitle>
@@ -367,7 +390,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 11. Call to Action (Final) */}
+        {/* 12. Call to Action (Final) (Previously 11) */}
         <section className="text-center py-10">
           <h2 className="text-4xl font-bold text-primary mb-6">
             Secure Your Access to Tokenized Trade Finance
