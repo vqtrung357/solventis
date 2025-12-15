@@ -5,18 +5,14 @@
       font-family: 'Orbitron', sans-serif;
       font-weight: 700;
       font-style: normal;
-      letter-spacing: -1px;
     }
   </style>
 
-  <!-- Background circle -->
+  <!-- Background circle in primary color -->
   <circle cx="50" cy="50" r="48" fill="#0B3C5D"/>
 
-  <!-- Solventis initial -->
-  <text x="50" y="60" className="favicon-text" fontSize="40" fill="white" text-anchor="middle">
+  <!-- Large S letter -->
+  <text x="50" y="65" className="favicon-text" fontSize="55" fill="white" text-anchor="middle">
     S
   </text>
-
-  <!-- Subtle tech accent -->
-  <path d="M20 70H80" stroke="white" strokeWidth="2" strokeLinecap="round"/>
 </svg>
