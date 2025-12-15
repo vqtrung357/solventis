@@ -1,18 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
-    .favicon-text {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      font-style: normal;
-    }
-  </style>
-
-  <!-- Background circle in primary color -->
+  <!-- Background circle in primary blue -->
   <circle cx="50" cy="50" r="48" fill="#0B3C5D"/>
 
-  <!-- Large S letter -->
-  <text x="50" y="65" className="favicon-text" fontSize="55" fill="white" text-anchor="middle">
+  <!-- Large S letter in white -->
+  <text x="50" y="65" font-family="Arial, sans-serif" font-size="55" font-weight="bold" fill="white" text-anchor="middle">
     S
   </text>
 </svg>
