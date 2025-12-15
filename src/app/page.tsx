@@ -13,6 +13,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Navigation } from "@/components/Navigation";
+import { BulletPointCard } from "@/components/BulletPointCard";
+import { DataCharts } from "@/components/DataCharts";
 
 // --- Helper Components for Structure ---
 
@@ -26,21 +28,6 @@ const SectionSubtitle = ({ children }: { children: React.ReactNode }) => (
   <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 text-center">
     {children}
   </p>
-);
-
-// --- Chart Placeholders (Section 6) ---
-
-const ChartPlaceholder = ({ title, description, icon: Icon }: { title: string, description: string, icon: React.ElementType }) => (
-  <div className="p-6 border rounded-lg shadow-sm bg-card/50 h-full flex flex-col">
-    <div className="flex items-center space-x-3 mb-4">
-      <Icon className="w-6 h-6 text-accent" />
-      <h3 className="text-xl font-semibold text-foreground">{title}</h3>
-    </div>
-    <p className="text-muted-foreground text-sm flex-grow">{description}</p>
-    <div className="mt-4 h-32 bg-gray-100 dark:bg-gray-800 rounded border border-dashed flex items-center justify-center text-sm text-gray-500">
-      [Professional Financial Chart Visualization]
-    </div>
-  </div>
 );
 
 
@@ -96,23 +83,23 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
             <div className="p-6 border rounded-lg bg-card shadow-sm">
               <h3 className="text-xl font-semibold mb-3 text-primary">Low Yield Environment</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-start"><ArrowRight className="w-4 h-4 mt-1 mr-2 flex-shrink-0 text-accent" /> Bank deposits and short-term treasuries often fail to meet target returns.</li>
-                <li className="flex items-start"><ArrowRight className="w-4 h-4 mt-1 mr-2 flex-shrink-0 text-accent" /> Inflation erodes real returns on conservative capital allocations.</li>
+              <ul className="space-y-3">
+                <BulletPointCard>Bank deposits and short-term treasuries often fail to meet target returns.</BulletPointCard>
+                <BulletPointCard>Inflation erodes real returns on conservative capital allocations.</BulletPointCard>
               </ul>
             </div>
             <div className="p-6 border rounded-lg bg-card shadow-sm">
               <h3 className="text-xl font-semibold mb-3 text-primary">Duration & Liquidity Risk</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-start"><ArrowRight className="w-4 h-4 mt-1 mr-2 flex-shrink-0 text-accent" /> Achieving higher yield typically requires locking up capital for years.</li>
-                <li className="flex items-start"><ArrowRight className="w-4 h-4 mt-1 mr-2 flex-shrink-0 text-accent" /> Private credit markets are opaque and lack standardized exit mechanisms.</li>
+              <ul className="space-y-3">
+                <BulletPointCard>Achieving higher yield typically requires locking up capital for years.</BulletPointCard>
+                <BulletPointCard>Private credit markets are opaque and lack standardized exit mechanisms.</BulletPointCard>
               </ul>
             </div>
             <div className="p-6 border rounded-lg bg-card shadow-sm">
               <h3 className="text-xl font-semibold mb-3 text-primary">Inaccessible Trade Finance</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-start"><ArrowRight className="w-4 h-4 mt-1 mr-2 flex-shrink-0 text-accent" /> Trade finance is a robust asset class but historically reserved for large banks.</li>
-                <li className="flex items-start"><ArrowRight className="w-4 h-4 mt-1 mr-2 flex-shrink-0 text-accent" /> High operational overhead prevents direct institutional participation.</li>
+              <ul className="space-y-3">
+                <BulletPointCard>Trade finance is a robust asset class but historically reserved for large banks.</BulletPointCard>
+                <BulletPointCard>High operational overhead prevents direct institutional participation.</BulletPointCard>
               </ul>
             </div>
           </div>
@@ -236,23 +223,7 @@ export default function Home() {
             Visualizing the risk, duration, and yield profile of Solventis Yield Notes compared to traditional fixed income instruments.
           </SectionSubtitle>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <ChartPlaceholder
-              title="Yield Comparison"
-              icon={BarChart3}
-              description="A bar chart illustrating the target yield of Solventis Yield Notes (6-9% APR) relative to conservative benchmarks like Singapore T-bills, investment-grade corporate bonds, and standard bank deposits."
-            />
-            <ChartPlaceholder
-              title="Duration vs. Risk Profile"
-              icon={Clock}
-              description="A scatter plot positioning Solventis Yield Notes firmly in the low-risk, short-duration quadrant, highlighting capital efficiency compared to long-duration fixed income products."
-            />
-            <ChartPlaceholder
-              title="Cash Flow Timeline"
-              icon={Shield}
-              description="A timeline chart showing the capital flow: Day 0 (Subscription), followed by the asset holding period (30-90 days), culminating in the automated settlement of Principal + Yield."
-            />
-          </div>
+          <DataCharts />
         </section>
 
         {/* 7. Compliance & Risk Management */}
