@@ -38,36 +38,49 @@ export default function Home() {
 
       <main className="container mx-auto px-4 md:px-8 py-16 space-y-24 md:space-y-32">
         
-        {/* 1. Hero Section */}
-        <section className="pt-10 pb-16">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter max-w-5xl leading-tight text-primary">
-            Institutional Yield
-            <br />
-            Backed by Real Trade
-          </h1>
-          <p className="mt-6 text-2xl text-muted-foreground max-w-4xl">
-            Access short-duration, asset-backed yield derived from tokenized global trade receivables.
-          </p>
-          <div className="mt-10 flex space-x-4">
-            <Button size="lg" className="h-12 px-8 text-lg bg-accent hover:bg-accent/90 text-white">
-              Request Institutional Access <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-lg border-primary text-primary hover:bg-primary/10">
-              Download Product Brief
-            </Button>
+        {/* 1. Hero Section with Enhanced Design */}
+        <section className="pt-10 pb-16 relative overflow-hidden">
+          {/* Blueish gradient background */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 to-accent/10 rounded-3xl"></div>
+
+          {/* Subtle texture pattern */}
+          <div className="absolute inset-0 -z-20 opacity-30">
+            <div className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>
+            <div className="absolute top-20 right-20 w-24 h-24 bg-accent/10 rounded-full blur-xl"></div>
+            <div className="absolute bottom-10 left-20 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
+            <div className="absolute bottom-20 right-10 w-28 h-28 bg-accent/10 rounded-full blur-xl"></div>
           </div>
-          
-          {/* Trust Indicators */}
-          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground font-medium">
-            <span className="flex items-center">
-              <Check className="w-4 h-4 mr-1 text-green-600" /> Singapore-based
-            </span>
-            <span className="flex items-center">
-              <Check className="w-4 h-4 mr-1 text-green-600" /> MAS-compliant structure
-            </span>
-            <span className="flex items-center">
-              <Check className="w-4 h-4 mr-1 text-green-600" /> Permissioned access only
-            </span>
+
+          <div className="relative z-10 text-center">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter max-w-5xl mx-auto leading-tight text-primary">
+              Institutional Yield
+              <br />
+              Backed by Real Trade
+            </h1>
+            <p className="mt-6 text-2xl text-muted-foreground max-w-4xl mx-auto">
+              Access short-duration, asset-backed yield derived from tokenized global trade receivables.
+            </p>
+            <div className="mt-10 flex justify-center space-x-4">
+              <Button size="lg" className="h-12 px-8 text-lg bg-accent hover:bg-accent/90 text-white">
+                Request Institutional Access <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button size="lg" variant="outline" className="h-12 px-8 text-lg border-primary text-primary hover:bg-primary/10">
+                Download Product Brief
+              </Button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-muted-foreground font-medium">
+              <span className="flex items-center">
+                <Check className="w-4 h-4 mr-1 text-green-600" /> Singapore-based
+              </span>
+              <span className="flex items-center">
+                <Check className="w-4 h-4 mr-1 text-green-600" /> MAS-compliant structure
+              </span>
+              <span className="flex items-center">
+                <Check className="w-4 h-4 mr-1 text-green-600" /> Permissioned access only
+              </span>
+            </div>
           </div>
         </section>
 
