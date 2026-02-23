@@ -15,6 +15,7 @@ const navItems = [
   { title: "Data", href: "/#data" },
   { title: "Regulatory", href: "/regulatory-framework" },
   { title: "Compliance", href: "/compliance" },
+  { title: "Blog", href: "/blog" },
 ];
 
 export function Navigation() {
