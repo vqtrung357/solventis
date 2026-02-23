@@ -13,6 +13,7 @@ const navItems = [
   { title: "Mechanism", href: "/#mechanism" },
   { title: "Product", href: "/#product" },
   { title: "Data", href: "/#data" },
+  { title: "Regulatory", href: "/regulatory-framework" },
   { title: "Compliance", href: "/compliance" },
 ];
 

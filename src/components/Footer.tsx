@@ -26,7 +26,8 @@ export function Footer() {
             <h4 className="font-bold text-lg mb-4">Resources</h4>
             <ul className="space-y-3 text-primary-foreground/70">
               <li><Link href="/#product" className="hover:text-white transition-colors">Product Brief</Link></li>
-              <li><Link href="/compliance" className="hover:text-white transition-colors font-semibold text-white">Compliance Framework</Link></li>
+              <li><Link href="/regulatory-framework" className="hover:text-white transition-colors font-semibold text-white">Regulatory Framework</Link></li>
+              <li><Link href="/compliance" className="hover:text-white transition-colors">Compliance Hub</Link></li>
               <li><Link href="/#mechanism" className="hover:text-white transition-colors">How it Works</Link></li>
               <li><Link href="/#data" className="hover:text-white transition-colors">Data & Yield</Link></li>
             </ul>
@@ -35,20 +36,15 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-4">Company</h4>
             <ul className="space-y-3 text-primary-foreground/70">
-              <li><Link href="/#singapore" className="hover:text-white transition-colors">Singapore Hub</Link></li>
-              <li><Link href="/#technology" className="hover:text-white transition-colors">Solana Technology</Link></li>
-              <li><Link href="/#clients" className="hover:text-white transition-colors">Target Clients</Link></li>
               <li><button className="hover:text-white transition-colors text-left">Contact Us</button></li>
+              <li><Link href="#" className="hover:text-white">Privacy Policy</Link></li>
+              <li><Link href="#" className="hover:text-white">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
         
         <div className="mt-16 pt-8 border-t border-white/10 text-sm text-primary-foreground/50 flex flex-col md:flex-row justify-between gap-4">
           <p>© {new Date().getFullYear()} Solventis. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-white">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white">Terms of Service</Link>
-          </div>
         </div>
       </div>
     </footer>
