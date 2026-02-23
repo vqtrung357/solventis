@@ -2,55 +2,50 @@
 
 import React from "react";
 import { Navigation } from "@/components/Navigation";
-import { Shield, Scale, ClipboardCheck, FileText, CheckCircle2 } from "lucide-react";
+import { Shield, Scale, ClipboardCheck, FileText, CheckCircle2, HelpCircle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function CompliancePage() {
+  const faqData = [
+    {
+      question: "What is Solventis' entity structure?",
+      answer: "Solventis utilizes bankruptcy-remote Special Purpose Vehicles (SPVs) for each issuance to ensure asset isolation and investor protection."
+    },
+    {
+      question: "Which jurisdictions does Solventis operate in?",
+      answer: "Solventis operates primarily under the legal frameworks of Singapore, Luxembourg, and other Tier-1 institutional jurisdictions."
+    },
+    {
+      question: "What compliance standards are followed?",
+      answer: "The platform integrates full KYC/AML/CFT procedures and continuous monitoring to meet global institutional standards."
+    },
+    {
+      question: "How is asset segregation and transparency handled?",
+      answer: "All Real World Assets (RWAs) have 1:1 backing with audited on-chain proof, representing direct claims on ring-fenced trade receivable assets."
+    },
+    {
+      question: "What investor protections are in place?",
+      answer: "Legal recourse frameworks are established under relevant jurisdictional laws, providing institutional investors with enforceable claims."
+    }
+  ];
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is Solventis' entity structure?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Solventis utilizes bankruptcy-remote Special Purpose Vehicles (SPVs) for each issuance to ensure asset isolation and investor protection."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which jurisdictions does Solventis operate in?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Solventis operates primarily under the legal frameworks of Singapore, Luxembourg, and other Tier-1 institutional jurisdictions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What compliance standards are followed?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The platform integrates full KYC/AML/CFT procedures and continuous monitoring to meet global institutional standards."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is asset segregation and transparency handled?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "All Real World Assets (RWAs) have 1:1 backing with audited on-chain proof, representing direct claims on ring-fenced trade receivable assets."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What investor protections are in place?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Legal recourse frameworks are established under relevant jurisdictional laws, providing institutional investors with enforceable claims."
-        }
+    "mainEntity": faqData.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
       }
-    ]
+    }))
   };
 
   return (
@@ -173,6 +168,27 @@ export default function CompliancePage() {
                 </div>
               </div>
             </div>
+          </section>
+
+          {/* Section 3: Visual FAQ */}
+          <section className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <HelpCircle className="w-8 h-8 text-accent" />
+              <h2 className="text-3xl font-bold text-primary">Regulatory & Compliance FAQ</h2>
+            </div>
+            
+            <Accordion type="single" collapsible className="w-full">
+              {faqData.map((item, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left text-lg font-semibold text-primary">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </section>
 
           {/* Footer Note */}
