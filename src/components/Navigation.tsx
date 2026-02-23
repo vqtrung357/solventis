@@ -8,16 +8,16 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navItems = [
-  { title: "Challenge", href: "#problem" },
-  { title: "Solution", href: "#solution" },
-  { title: "Mechanism", href: "#mechanism" },
-  { title: "Product", href: "#product" },
-  { title: "Data", href: "#data" },
-  { title: "Compliance", href: "#compliance" },
-  { title: "Singapore", href: "#singapore" },
-  { title: "Technology", href: "#technology" },
-  { title: "Stablecoin", href: "#stablecoin" },
-  { title: "Clients", href: "#clients" },
+  { title: "Challenge", href: "/#problem" },
+  { title: "Solution", href: "/#solution" },
+  { title: "Mechanism", href: "/#mechanism" },
+  { title: "Product", href: "/#product" },
+  { title: "Data", href: "/#data" },
+  { title: "Compliance", href: "/compliance" },
+  { title: "Singapore", href: "/#singapore" },
+  { title: "Technology", href: "/#technology" },
+  { title: "Stablecoin", href: "/#stablecoin" },
+  { title: "Clients", href: "/#clients" },
 ];
 
 export function Navigation() {
