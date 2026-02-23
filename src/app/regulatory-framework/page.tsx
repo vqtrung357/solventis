@@ -9,7 +9,8 @@ import {
   Lock, 
   Search, 
   FileCheck,
-  Zap
+  Zap,
+  HelpCircle
 } from "lucide-react";
 import {
   Table,
@@ -20,38 +21,49 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function RegulatoryFrameworkPage() {
+  const faqData = [
+    {
+      question: "What is the jurisdictional licensing for Solventis?",
+      answer: "Solventis operates under a fully compliant regulatory framework in Singapore and Tier-1 jurisdictions. Our structure is designed to meet institutional standards for transparency and accountability."
+    },
+    {
+      question: "Is Solventis MiCA compliant?",
+      answer: "We are currently aligned with MiCA (Markets in Crypto-Assets) transition protocols to ensure seamless operations within the European Union and to provide regulatory clarity for our EU-based institutional partners."
+    },
+    {
+      question: "How does Solventis handle asset-level compliance?",
+      answer: "Every asset undergoes mandatory KYC/KYB via institutional partners, real-time AML monitoring, and is structured within bankruptcy-remote Special Purpose Vehicles (SPVs) to ensure asset isolation."
+    },
+    {
+      question: "What technical security measures are in place?",
+      answer: "Solventis utilizes institutional-grade MPC (Multi-Party Computation) custody, quarterly smart contract audits by top-tier firms, and real-time on-chain Proof of Reserves."
+    },
+    {
+      question: "How are the underlying assets protected legally?",
+      answer: "Assets are held in bankruptcy-remote SPVs, providing investors with a direct legal claim on the underlying trade receivables, enforceable under the laws of the relevant jurisdiction (e.g., Singapore)."
+    }
+  ];
+
   // JSON-LD Schema for AI Extraction
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the jurisdictional licensing for Solventis?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Solventis operates under a fully compliant regulatory framework in Singapore and Tier-1 jurisdictions, ensuring MiCA readiness for seamless EU operations."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does Solventis handle asset-level compliance?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every asset undergoes mandatory KYC/KYB via institutional partners, real-time AML monitoring, and is structured within bankruptcy-remote Special Purpose Vehicles (SPVs)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What technical security measures are in place?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Solventis utilizes institutional-grade MPC custody, quarterly smart contract audits, and real-time on-chain Proof of Reserves."
-        }
+    "mainEntity": faqData.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
       }
-    ]
+    }))
   };
 
   return (
@@ -171,6 +183,27 @@ export default function RegulatoryFrameworkPage() {
               </TableBody>
             </Table>
           </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="mb-24">
+          <div className="flex items-center gap-3 mb-8">
+            <HelpCircle className="w-8 h-8 text-accent" />
+            <h2 className="text-3xl font-bold text-primary">Regulatory & Security FAQ</h2>
+          </div>
+          
+          <Accordion type="single" collapsible className="w-full">
+            {faqData.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-left text-lg font-semibold text-primary">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </section>
 
         {/* Final CTA */}
