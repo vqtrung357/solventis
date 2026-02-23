@@ -6,8 +6,59 @@ import { Shield, Scale, ClipboardCheck, FileText, CheckCircle2 } from "lucide-re
 import { Separator } from "@/components/ui/separator";
 
 export default function CompliancePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Solventis' entity structure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Solventis utilizes bankruptcy-remote Special Purpose Vehicles (SPVs) for each issuance to ensure asset isolation and investor protection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which jurisdictions does Solventis operate in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Solventis operates primarily under the legal frameworks of Singapore, Luxembourg, and other Tier-1 institutional jurisdictions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What compliance standards are followed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The platform integrates full KYC/AML/CFT procedures and continuous monitoring to meet global institutional standards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is asset segregation and transparency handled?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All Real World Assets (RWAs) have 1:1 backing with audited on-chain proof, representing direct claims on ring-fenced trade receivable assets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What investor protections are in place?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Legal recourse frameworks are established under relevant jurisdictional laws, providing institutional investors with enforceable claims."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navigation />
 
       <main className="container mx-auto px-4 md:px-8 py-16">
