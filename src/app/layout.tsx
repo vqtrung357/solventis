@@ -17,7 +17,11 @@ export const metadata: Metadata = {
   title: "Solventis - Institutional Yield Backed by Real Trade",
   description: "Access short-duration, asset-backed yield derived from tokenized global trade receivables. Institutional platform for stable, high-quality returns.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/icon.svg",
   },
 };
 
