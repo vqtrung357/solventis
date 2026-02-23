@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowRight, BarChart3, Clock, Shield } from "lucide-react";
+import { Check, ArrowRight, BarChart3, Clock, Shield, HelpCircle } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -11,6 +11,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Navigation } from "@/components/Navigation";
 import { BulletPointCard } from "@/components/BulletPointCard";
 import { DataCharts } from "@/components/DataCharts";
@@ -31,13 +37,53 @@ const SectionSubtitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function Home() {
+  const faqData = [
+    {
+      question: "What are Solventis Yield Notes?",
+      answer: "Solventis Yield Notes are short-duration, asset-backed digital securities representing a claim on tokenized trade finance receivables. They offer institutional investors a way to earn stable yield from real-world trade flows."
+    },
+    {
+      question: "Who is eligible to invest?",
+      answer: "Access is strictly limited to whitelisted institutional investors, including family offices, corporate treasuries, and asset managers. All participants must pass rigorous KYC/KYB checks."
+    },
+    {
+      question: "What is the typical duration and yield?",
+      answer: "The notes typically have a duration of 30 to 90 days, aligning with the maturity of the underlying trade invoices. Target yields generally range between 6% and 9% APR."
+    },
+    {
+      question: "How are the assets protected?",
+      answer: "Assets are held in bankruptcy-remote Special Purpose Vehicles (SPVs) in Singapore, providing a direct legal claim on the underlying trade receivables."
+    },
+    {
+      question: "How is settlement handled?",
+      answer: "We utilize stablecoins (e.g., USDC) for near-instantaneous settlement of both principal and yield upon asset maturity, bypassing the delays of traditional banking rails."
+    }
+  ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navigation />
 
       <main className="container mx-auto px-4 md:px-8 py-16 space-y-24 md:space-y-32">
         
-        {/* 1. Hero Section with Prominent Orange and Blue Background */}
+        {/* 1. Hero Section */}
         <section className="pt-10 pb-16 relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-200/30 via-blue-200/20 to-primary/20 rounded-3xl"></div>
 
@@ -46,8 +92,6 @@ export default function Home() {
             <div className="absolute top-20 right-20 w-32 h-32 bg-blue-300/30 rounded-full blur-2xl"></div>
             <div className="absolute bottom-10 left-20 w-28 h-28 bg-orange-300/30 rounded-full blur-2xl"></div>
             <div className="absolute bottom-20 right-10 w-36 h-36 bg-blue-300/30 rounded-full blur-2xl"></div>
-            <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-orange-400/20 rounded-full blur-xl"></div>
-            <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-blue-400/20 rounded-full blur-xl"></div>
           </div>
 
           <div className="relative z-10 text-center">
@@ -86,7 +130,7 @@ export default function Home() {
 
         <Separator />
 
-        {/* 2. Problem Statement (Institutional Context) */}
+        {/* 2. Problem Statement */}
         <section id="problem" className="text-center">
           <SectionTitle>The Challenge of Institutional Fixed Income</SectionTitle>
           <SectionSubtitle>
@@ -132,28 +176,10 @@ export default function Home() {
                 Solventis is a **permissioned platform** for institutional investors seeking stable, asset-backed yield. We provide structured access to the global trade finance market, minimizing operational friction through tokenization and stablecoin settlement.
               </p>
             </div>
-            
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h3 className="text-xl font-semibold mb-3 text-destructive">What Solventis is NOT</h3>
-              <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                <li>Not a Decentralized Finance (DeFi) protocol.</li>
-                <li>Not available to retail investors or the general public.</li>
-                <li>Not based on speculative or volatile crypto assets.</li>
-              </ul>
-            </div>
-
-            <div className="pt-4">
-              <h3 className="text-xl font-semibold mb-3 text-primary text-center">The Solventis Flow</h3>
-              <div className="p-6 border rounded-lg bg-secondary/30 text-center font-mono text-sm md:text-base overflow-x-auto">
-                <span className="whitespace-nowrap">
-                  Institutions → Solventis Platform → Trade Receivables (SPV) → Yield Generation → Stablecoin Settlement
-                </span>
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* 4. How It Works (Mechanism – Step by Step) */}
+        {/* 4. How It Works */}
         <section id="mechanism">
           <SectionTitle>Mechanism: A Structured Approach to RWA</SectionTitle>
           <SectionSubtitle>
@@ -162,19 +188,16 @@ export default function Home() {
 
           <div className="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto">
             {[
-              { title: "1. Asset Origination", description: "We source high-quality, investment-grade trade receivables (invoices) from established corporate counterparties globally." },
-              { title: "2. Due Diligence & SPV Structuring", description: "Each asset undergoes comprehensive legal and financial review. Assets are segregated into bankruptcy-remote Special Purpose Vehicles (SPVs) in Singapore." },
-              { title: "3. Tokenized Yield Note Issuance", description: "A digital security (Yield Note) representing the claim on the SPV assets is issued on a permissioned blockchain ledger." },
-              { title: "4. Institutional Subscription", description: "Whitelisted institutions subscribe to the Yield Notes using stablecoins, providing immediate funding to the SPV." },
-              { title: "5. Cash Flow & Settlement", description: "Upon invoice maturation (30–90 days), the principal and yield are automatically distributed back to the investor via stablecoin settlement." },
+              { title: "1. Asset Origination", description: "We source high-quality trade receivables from established corporate counterparties." },
+              { title: "2. Due Diligence", description: "Assets are segregated into bankruptcy-remote SPVs in Singapore." },
+              { title: "3. Note Issuance", description: "A digital security (Yield Note) is issued on a permissioned blockchain ledger." },
+              { title: "4. Subscription", description: "Whitelisted institutions subscribe using stablecoins." },
+              { title: "5. Settlement", description: "Principal and yield are automatically distributed back via stablecoin." },
             ].map((step, index) => (
-              <div key={index} className="relative p-4 border rounded-lg bg-card shadow-md hover:shadow-lg transition-shadow">
+              <div key={index} className="relative p-4 border rounded-lg bg-card shadow-md">
                 <div className="text-3xl font-extrabold text-accent mb-2">{index + 1}</div>
                 <h4 className="font-semibold text-lg mb-1 text-primary">{step.title}</h4>
                 <p className="text-sm text-muted-foreground">{step.description}</p>
-                {index < 4 && (
-                  <ArrowRight className="absolute right-[-1.5rem] top-1/2 transform -translate-y-1/2 w-6 h-6 text-border hidden md:block" />
-                )}
               </div>
             ))}
           </div>
@@ -184,7 +207,7 @@ export default function Home() {
         <section id="product" className="text-center">
           <SectionTitle>Product Focus: Solventis Yield Notes</SectionTitle>
           <SectionSubtitle>
-            A highly structured, short-duration product designed for treasury management and conservative capital deployment.
+            A highly structured, short-duration product designed for treasury management.
           </SectionSubtitle>
 
           <div className="max-w-3xl mx-auto">
@@ -197,10 +220,6 @@ export default function Home() {
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell className="font-medium text-primary">Asset Type</TableCell>
-                  <TableCell>Trade receivables (verified corporate invoices)</TableCell>
-                </TableRow>
-                <TableRow>
                   <TableCell className="font-medium text-primary">Duration</TableCell>
                   <TableCell>30–90 days (short-term)</TableCell>
                 </TableRow>
@@ -209,20 +228,8 @@ export default function Home() {
                   <TableCell>6–9% APR (Asset-backed)</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium text-primary">Currency</TableCell>
-                  <TableCell>SGD / USD denominated assets</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium text-primary">Collateral</TableCell>
-                  <TableCell>Underlying invoice + enforceable legal claim against the debtor.</TableCell>
-                </TableRow>
-                <TableRow>
                   <TableCell className="font-medium text-primary">Structure</TableCell>
-                  <TableCell>Bankruptcy-remote SPV (Singapore jurisdiction)</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium text-primary">Investor Type</TableCell>
-                  <TableCell>Whitelisted institutions only (KYC/KYB required)</TableCell>
+                  <TableCell>Bankruptcy-remote SPV (Singapore)</TableCell>
                 </TableRow>
               </TableBody>
             </Table>
@@ -232,196 +239,45 @@ export default function Home() {
         {/* 6. Chart Section */}
         <section id="data" className="text-center">
           <SectionTitle>Data-Driven Allocation</SectionTitle>
-          <SectionSubtitle>
-            Visualizing the risk, duration, and yield profile of Solventis Yield Notes compared to traditional fixed income instruments.
-          </SectionSubtitle>
-
           <DataCharts />
         </section>
 
-        {/* 7. Compliance & Risk Management */}
-        <section id="compliance" className="text-center">
-          <SectionTitle>Compliance and Institutional Safeguards</SectionTitle>
-          <SectionSubtitle>
-            Our framework is built on regulatory adherence and robust risk mitigation, ensuring capital protection and legal enforceability.
-          </SectionSubtitle>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h3 className="text-xl font-semibold mb-3 text-primary">Permissioned Access & Vetting</h3>
-              <p className="text-muted-foreground">
-                Access is strictly permissioned. All investors undergo rigorous institutional KYC (Know Your Customer) and KYB (Know Your Business) procedures before being whitelisted to participate.
-              </p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h3 className="text-xl font-semibold mb-3 text-primary">Legal Enforceability</h3>
-              <p className="text-muted-foreground">
-                The underlying assets are held in bankruptcy-remote SPVs, providing investors with a direct, legally enforceable claim on the trade receivables under Singapore law.
-              </p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h3 className="text-xl font-semibold mb-3 text-primary">Transfer Restrictions</h3>
-              <p className="text-muted-foreground">
-                Token transfers are restricted to other whitelisted institutional wallets, preventing unauthorized secondary market activity and maintaining regulatory control.
-              </p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h3 className="text-xl font-semibold mb-3 text-primary">Asset-Level Due Diligence</h3>
-              <p className="text-muted-foreground">
-                We employ third-party verification and continuous monitoring of asset originators and debtors to ensure the quality and timely settlement of all underlying invoices.
-              </p>
-            </div>
+        {/* 7. General FAQ Section (NEW) */}
+        <section id="faq" className="text-center max-w-4xl mx-auto">
+          <div className="flex justify-center mb-6">
+            <HelpCircle className="w-12 h-12 text-accent" />
           </div>
-        </section>
-
-        {/* 8. Why Singapore */}
-        <section id="singapore" className="text-center">
-          <SectionTitle>Strategic Location: Singapore</SectionTitle>
+          <SectionTitle>Frequently Asked Questions</SectionTitle>
           <SectionSubtitle>
-            Operating from Singapore provides a foundation of regulatory clarity, financial stability, and unparalleled access to global trade flows.
+            General inquiries regarding our platform, products, and investment process.
           </SectionSubtitle>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Global Trade Hub</h4>
-              <p className="text-muted-foreground">Singapore is a central node for ASEAN and global commerce, providing direct access to high-volume, high-quality trade finance opportunities.</p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Regulatory Clarity</h4>
-              <p className="text-muted-foreground">The Monetary Authority of Singapore (MAS) offers a clear, progressive regulatory environment for digital securities and asset tokenization.</p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Institutional Capital Base</h4>
-              <p className="text-muted-foreground">The jurisdiction hosts a deep pool of family offices, private banks, and asset managers, aligning with our institutional-only mandate.</p>
-            </div>
-          </div>
-        </section>
-        
-        {/* 9. Technology: Solana Integration (NEW) */}
-        <section id="technology" className="text-center">
-          <SectionTitle>Technology: Solana Integration</SectionTitle>
-          <SectionSubtitle>
-            We partner with the Solana Blockchain team to leverage its high throughput and low latency for institutional-grade tokenization and settlement.
-          </SectionSubtitle>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Institutional Speed</h4>
-              <p className="text-muted-foreground">Solana's architecture ensures rapid transaction finality, crucial for high-frequency institutional trade finance operations.</p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Low Cost Settlement</h4>
-              <p className="text-muted-foreground">The network's minimal transaction fees make micro-settlements economically viable for large volumes of trade receivables.</p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Permissioned Ledger</h4>
-              <p className="text-muted-foreground">We utilize a permissioned layer on Solana, ensuring strict adherence to KYC/KYB requirements and regulatory compliance for digital securities.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* 10. Solventis Stablecoin Layer (Previously 9) */}
-        <section id="stablecoin" className="text-center">
-          <SectionTitle>Efficient Settlement via Stablecoins</SectionTitle>
-          <SectionSubtitle>
-            We utilize stablecoins exclusively for settlement, enhancing treasury efficiency and reducing counterparty risk compared to traditional banking rails.
-          </SectionSubtitle>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Faster Settlement</h4>
-              <p className="text-muted-foreground">Stablecoin rails enable near-instantaneous distribution of principal and yield upon asset maturity, eliminating T+2 or T+3 delays.</p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Treasury Efficiency</h4>
-              <p className="text-muted-foreground">Capital remains in a digital, readily deployable format, optimizing liquidity management for corporate treasuries and funds.</p>
-            </div>
-            <div className="p-6 border rounded-lg bg-card shadow-sm">
-              <h4 className="text-xl font-semibold mb-2 text-primary">Reduced FX Friction</h4>
-              <p className="text-muted-foreground">Settlement in major stablecoin denominations (e.g., USDC, potentially regulated SGD stablecoins) minimizes cross-border currency conversion costs.</p>
-            </div>
-          </div>
-          <p className="mt-8 text-sm text-gray-500 italic">
-            Note: The stablecoins used are fully asset-backed and regulated; Solventis does not utilize algorithmic or retail-facing stablecoin mechanisms.
-          </p>
-        </section>
-
-        {/* 11. Target Clients (Institutional Only) (Previously 10) */}
-        <section id="clients" className="text-center">
-          <SectionTitle>Target Clientele: Institutional Only</SectionTitle>
-          <SectionSubtitle>
-            Solventis is designed exclusively for sophisticated investors requiring compliant, high-quality RWA exposure.
-          </SectionSubtitle>
-
-          <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-            {[
-              "Family Offices",
-              "Corporate Treasuries",
-              "Private Banks",
-              "Asset Managers",
-              "Institutional Crypto Funds",
-            ].map((client) => (
-              <div key={client} className="px-6 py-3 border border-accent text-accent font-medium rounded-full bg-accent/10">
-                {client}
-              </div>
+          <Accordion type="single" collapsible className="w-full text-left">
+            {faqData.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-lg font-semibold text-primary">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
-
-          <div className="mt-12 p-6 bg-destructive/10 border border-destructive/50 rounded-lg max-w-2xl mx-auto">
-            <p className="font-semibold text-destructive">
-              Disclaimer: Solventis products are not available to retail investors.
-            </p>
-          </div>
+          </Accordion>
         </section>
 
-        {/* 12. Customer Testimonials (NEW) */}
-        <section id="testimonials" className="text-center">
-          <SectionTitle>What Our Clients Say</SectionTitle>
-          <SectionSubtitle>
-            Hear from institutional investors who have experienced the Solventis advantage firsthand.
-          </SectionSubtitle>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <TestimonialCard
-              quote="Solventis has transformed our treasury strategy. The combination of short-duration, high-quality yield, and seamless stablecoin settlement is unmatched in the market."
-              author="Sarah Chen"
-              title="CFO"
-              company="Global Family Office"
-            />
-            <TestimonialCard
-              quote="As a regulated asset manager, compliance is paramount. Solventis' MAS-compliant structure and rigorous due diligence process gave us the confidence to allocate capital to their tokenized trade finance notes."
-              author="Michael Tan"
-              title="Portfolio Manager"
-              company="Institutional Asset Management"
-            />
-            <TestimonialCard
-              quote="The Solana integration is a game-changer. We've seen settlement times reduced from days to minutes, with complete transparency throughout the process. This is the future of institutional finance."
-              author="David Wong"
-              title="Head of Digital Assets"
-              company="Private Bank"
-            />
-          </div>
-        </section>
-
-        {/* 13. Call to Action (Final) (Previously 11) */}
+        {/* 8. Call to Action */}
         <section className="text-center py-10">
           <h2 className="text-4xl font-bold text-primary mb-6">
             Secure Your Access to Tokenized Trade Finance
           </h2>
-          <p className="text-xl text-muted-foreground mb-10">
-            Begin the institutional onboarding process and receive our detailed investment memorandum.
-          </p>
           <div className="flex justify-center space-x-4">
             <Button size="lg" className="h-14 px-10 text-xl bg-primary hover:bg-primary/90 text-white">
               Request Institutional Access
             </Button>
-            <Button size="lg" variant="outline" className="h-14 px-10 text-xl border-accent text-accent hover:bg-accent/10">
-              Speak with the Solventis Team
-            </Button>
           </div>
         </section>
       </main>
-      
     </div>
   );
 }
