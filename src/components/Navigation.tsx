@@ -15,6 +15,7 @@ const navItems = [
   { title: "Data", href: "/#data" },
   { title: "Regulatory", href: "/regulatory-framework" },
   { title: "Compliance", href: "/compliance" },
+  { title: "SG Compliance", href: "/compliance-singapore" },
   { title: "Blog", href: "/blog" },
 ];
 
