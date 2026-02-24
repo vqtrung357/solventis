@@ -8,12 +8,42 @@ import {
   ShieldCheck, 
   ExternalLink,
   ChevronRight,
-  Milestone
+  Milestone,
+  HelpCircle
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function ComplianceSingaporePage() {
+  const faqData = [
+    {
+      question: "What specific regulatory framework does Solventis operate under in Singapore?",
+      answer: "Solventis operates within the framework of the Securities and Futures Act (SFA). We are currently in the process of applying for a Capital Markets Services (CMS) License to strengthen our institutional offering."
+    },
+    {
+      question: "Who is eligible to invest through the Singapore-based SPVs?",
+      answer: "Access is strictly restricted to 'Accredited Investors' and 'Institutional Investors' as defined under the Securities and Futures Act (SFA) of Singapore. All participants must undergo rigorous KYC and KYB verification."
+    },
+    {
+      question: "How does Solventis handle AML/CFT requirements in Singapore?",
+      answer: "We strictly adhere to MAS Notice SFA04-N02 (and equivalent PSN01 guidelines), implementing robust Anti-Money Laundering (AML) and Countering the Financing of Terrorism (CFT) controls, including real-time transaction monitoring."
+    },
+    {
+      question: "Is Solventis part of the MAS FinTech Sandbox?",
+      answer: "We maintain active dialogue with the MAS FinTech and Ecosystem Development Group. While we currently operate under existing exemptions for institutional-only offerings, we are evaluating the Sandbox for future retail-facing innovations."
+    },
+    {
+      question: "Are the digital notes considered 'Capital Markets Products'?",
+      answer: "Yes. Under the SFA, the tokenized yield notes issued by our Singapore SPVs are classified as digital securities and are treated as Capital Markets Products."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -80,6 +110,27 @@ export default function ComplianceSingaporePage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <HelpCircle className="w-8 h-8 text-accent" />
+              <h2 className="text-3xl font-bold text-primary">Singapore Compliance FAQ</h2>
+            </div>
+            
+            <Accordion type="single" collapsible className="w-full">
+              {faqData.map((item, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left text-lg font-semibold text-primary">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </section>
 
           {/* Regulatory Verification */}
